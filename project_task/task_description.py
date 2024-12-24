@@ -18,29 +18,25 @@ async def main():
         while final_task:
            
             system_message = """
-            You are an AI assistant that helps to provide information about the data extracted  with a conector (connector is a resource that extract data from an endpoint). 
-            Your task is to take a brief description the source of data and the data.
+            You are an AI assistant that helps to provide information about task taking a short description, you are able to provide more informacion.
+            Provide a list of step to complete the task.
             """
 
             input_text = """
-Qualys is a leading company specializing in cybersecurity and compliance solutions. Their products and services are designed to assist organizations in managing and securing their IT infrastructure while ensuring compliance with industry standards and regulations.
-
-Qualys offers a comprehensive suite of security and compliance solutions, including vulnerability management, threat intelligence, and cloud security services.
-
-DATASETS:
-- Qualys scans: .
-- Qualys vulnerability management: .
-- Qualys Assets: .
-  """
+                    Task: Create UG2 and Lummus dashboard 
+                    Description: Combine the information from umbrella and crowdstrike in orde to create a new dashboard.
+                    The dashboard should be in Kibana and these will be copy to respective space (UG2 and Lummus).  
+                    Note: The data exist in or data base
+                 """
+            time=8
             
             cron_data = "schedule cron : 0 10 * * * *"
 
             prompt = f"""
             Take the following short description and expand it:
             Description: {input_text}
-            - Step 1: Describe the resource where the data is extracted (max_tokens=100).
-            - Step 2: Provive a list with the datasets extracted whit a short description.
-            - Step 3: Add a short note about how this data fits into a larger project or objective and the time where data is updated {cron_data}.
+            - Step 1: Provive a short description with the task.
+            - Step 2: Provide steps to complete the task in {time} hours  with an interval of 1 to 3 hours.
             """
 
             # Initialize messages array

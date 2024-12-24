@@ -1,0 +1,59 @@
+To ensure the code runs only for a specific endpoint, you need to define an Azure Function with an HTTP trigger that will execute the code only when the specified endpoint is hit. Below is a simplified and structured example of how to integrate your existing Python class into an Azure Function that triggers on HTTP requests to a specific endpoint.
+
+1. **Set up the Azure Function App**: Make sure you have the Azure Functions development environment ready with the necessary configuration for Python.
+
+2. **Define the HTTP Trigger for Azure Function**:
+
+```python
+import azure.functions as func
+from .nicecxone_elasticsearch import NicecxoneElasticsearch  # Assuming your class is in this module
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    try:
+        # Instantiate the main class
+        nice_elasticsearch = NicecxoneElasticsearch()
+        
+        # Trigger the synchronization method (or any method you want to run)
+        nice_elasticsearch.sync_data()
+        
+        return func.HttpResponse(
+            "Data synchronization process completed successfully.",
+            status_code=200
+        )
+    except Exception as e:
+        return func.HttpResponse(
+            f"Error occurred: {str(e)}",
+            status_code=500
+        )
+```
+
+3. **Configure the `function.json`**:
+   Make sure to configure the `function.json` in the Azure Function to set the bindings and constraints including the method and the route. Here's an example configuration if you want to trigger the function on a POST request to `/sync-data` endpoint:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"],
+      "route": "sync-data"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+4. **Deploy Your Function**:
+   Deploy your function to Azure Functions. Make sure all dependencies are correctly installed in your environment, and your function app settings are correctly configured, including environment variables.
+
+5. **Test Your Endpoint**:
+   Once deployed, test the endpoint by sending a POST request to the URL provided by Azure Functions which will be something like `https://<your-function-app>.azurewebsites.net/api/sync-data`.
+
+This setup ensures that your Python class and methods are encapsulated within an Azure Function that activates only when the specific endpoint (`/sync-data` in this example) is accessed. Adjust the route and methods as per your requirements.

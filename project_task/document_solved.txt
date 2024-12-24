@@ -1,0 +1,54 @@
+```json
+[
+    {
+        "date": "2024-06-10",
+        "tasks": [
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Design connector schema for NICE QA data"},
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Develop initial connector setup"}
+        ]
+    },
+    {
+        "date": "2024-06-11",
+        "tasks": [
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Test data fetching from NICE QA service"},
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Implement indexing in Elasticsearch"}
+        ]
+    },
+    {
+        "date": "2024-06-12",
+        "tasks": [
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Create dashboard for QA metrics visualization"},
+            {"task": "NICE QA Surveys", "duration_hours": 2, "activity": "Final testing and deployment of connector"}
+        ]
+    },
+    {
+        "date": "2024-06-13",
+        "tasks": [
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Research on Qualys API capabilities"},
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Define data model for KBRA customer metrics"}
+        ]
+    },
+    {
+        "date": "2024-06-14",
+        "tasks": [
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Setup initial dashboard framework"},
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Develop data fetching logic from Qualys"},
+            {"task": "KBRA Dashboards", "duration_hours": 3, "activity": "Integrate vulnerability data into dashboard"}
+        ]
+    },
+    {
+        "date": "2024-06-20",
+        "tasks": [
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Perform user acceptance testing"}
+        ]
+    },
+    {
+        "date": "2024-06-21",
+        "tasks": [
+            {"task": "KBRA Dashboards", "duration_hours": 2, "activity": "Finalize dashboard configurations"},
+            {"task": "KBRA Dashboards", "duration_hours": 1.5, "activity": "Review and optimize dashboard performance"},
+            {"task": "KBRA Dashboards", "duration_hours": 1.5, "activity": "Prepare documentation and user guides"}
+        ]
+    }
+]
+```

@@ -1,0 +1,73 @@
+### SharePoint
+
+1. **Purpose**
+
+The SharePoint connector for Elasticsearch facilitates synchronization of SharePoint activity and usage data. It integrates with Microsoft Graph API to pull detailed information on SharePoint usage, including user interactions, file activities, site usage details, and much more. This synchronization aids in monitoring SharePoint environments, optimizing content management, and enhancing collaboration across the organization.
+
+2. **Requirements**
+
+To utilize the SharePoint connector, ensure Azure Active Directory app registrations are configured with the necessary permissions for accessing SharePoint data via the Microsoft Graph API.
+
+3. **Microsoft Graph API Authentication**
+
+For accessing SharePoint data, Azure Active Directory (Azure AD) app registrations must be set up with required permissions, specifically Reports.Read.All. Authentication involves Azure Graph API credentials including `app_ids`, `app_secrets`, `tenants_for_login`, and OAuth tokens. Each customer must have OAuth tokens to authenticate API requests, ensuring secure and authorized data access.
+
+4. **Data Sources**
+
+Endpoint Name | Endpoint URL | Necessary Permission
+--- | --- | ---
+getSharePointActivityUserDetail | `https://graph.microsoft.com/v1.0/reports/getSharePointActivityUserDetail(date={date_value})` | Reports.Read.All
+getSharePointSiteUsageDetail | `https://graph.microsoft.com/v1.0/reports/getSharePointSiteUsageDetail(date={date_value})` | 
+
+5. **Data Points**
+
+- **Index: azgraph.sharepoint.activity.detail**
+
+    Tracks detailed user activity within SharePoint. Data fields include:
+
+    - Report Refresh Date
+    - User Principal Name
+    - Is Deleted
+    - Deleted Date
+    - Last Activity Date
+    - Viewed Or Edited File Count
+    - Synced File Count
+    - Shared Internally File Count
+    - Shared Externally File Count
+    - Visited Page Count
+    - Assigned Products
+    - Report Period
+
+- **Index: azgraph.sharepoint.site.detail**
+
+    Tracks site usage details in SharePoint. Data fields include:
+
+    - Report Refresh Date
+    - Site ID
+    - Site URL
+    - Owner Display Name
+    - Is Deleted
+    - Last Activity Date
+    - File Count
+    - Active File Count
+    - Page View Count
+    - Visited Page Count
+    - Storage Used (Byte)
+    - Storage Allocated (Byte)
+    - Root Web Template
+    - Owner Principal Name
+    - Report Period
+
+6. **Dashboard**
+
+The SharePoint connector offers an intuitive dashboard that visually represents the data on SharePoint usage, enhancing the understanding of user behavior and site activities. (Include a representative dashboard image here.)
+
+7. **Frequency of Sampling**
+
+The Microsoft SharePoint Connector samples data daily at 10:50 AM UTC, providing up-to-date insights into the usage and activity within SharePoint environments.
+
+8. **Key Takeaways**
+
+- **Enhanced Monitoring:** The SharePoint connector enables organizations to closely monitor user activities and site usage, helping identify trends and areas for improvement.
+- **Optimized Content Management:** By analyzing file and site interactions, organizations can better manage their content lifecycle and collaboration strategies.
+- **Security and Compliance:** Detailed tracking of user activities and file usage helps in maintaining security protocols and compliance with regulatory requirements, reducing risks associated with unauthorized access and data leaks.

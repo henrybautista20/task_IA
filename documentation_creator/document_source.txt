@@ -1,0 +1,53 @@
+Teams
+
+Microsoft Teams 
+
+1. Purpose
+ 
+The Teams connector for Elasticsearch facilitates synchronization of Microsoft Teams activity and usage data. It integrates with the Microsoft Graph API to retrieve detailed information on Teams usage, including user activity, call durations (e.g., video calls in minutes), license details, messages, and guest user interactions. This synchronization supports multiple use cases, such as monitoring team activity, tracking user engagement, and analyzing communication patterns within Microsoft Teams.
+
+2. Requirements:
+
+2.1:  Microsoft Graph API Authentication:
+Azure Active Directory (Azure AD) app registrations with the necessary permissions to access Teams data, such as reading reports, user activity, and call records.
+Azure Graph API credentials:
+app_ids
+app_secrets
+tenants_for_login
+OAuth tokens: Required for each customer to authenticate API requests.
+
+2. Data Sources
+
+
+Endpoint Name	Endpoint URL	Necessary Permission
+getteamsTeamActivityDetail	https://graph.microsoft.com/v1.0/reports/getTeamsTeamActivityDetail
+Reports.Read.All, Group.Read.All
+getteamsTeamActivityCounts	https://graph.microsoft.com/v1.0/reports/getTeamsTeamActivityCounts
+
+
+3. Data Points
+
+
+Index: graph.teams.device_usage_detail
+Tracks detailed information about the devices used by Microsoft Teams users, including activity and license information.
+create_date: Date when the record was created.
+deleted_date: Date when the record was deleted, if applicable.
+...
+
+ 
+Index: graph.teams.device_usage_count
+
+Tracks the count of device usage for Microsoft Teams across various platforms.
+android_phone: Number of Android phones used.
+...
+
+4. Dashboard 
+
+Some information of Dashboard and Image.
+ 
+5. Frequency of Sampling
+
+The Microsoft teams Connector samples data daily at 04:20 AM UTC. Please be aware that some data is aggregated over periods of 6 days. 
+
+6. Key Takeaways
+Write it

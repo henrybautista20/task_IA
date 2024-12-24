@@ -1,0 +1,96 @@
+**Intune Device Manager API Documentation (managedDevices)**
+
+1. **Purpose**
+
+The Intune Device Manager API connector for Elasticsearch enables the synchronization of device management data via Microsoft Graph API. This connector supports the efficient monitoring and management of organizational devices, providing insights into device statuses, configurations, and compliance.
+
+2. **Requirements**
+
+To utilize the Intune Device Manager API, organizations need Azure Active Directory (Azure AD) app registrations configured with precise permissions for comprehensive device data access.
+
+**Microsoft Graph API Authentication:**
+
+Azure Active Directory (Azure AD) app registrations must be configured with permissions such as DeviceManagementManagedDevices.Read.All to access relevant device data. These registrations require Azure Graph API credentials including app_ids, app_secrets, and tenants_for_login. OAuth tokens are essential for each customer, serving as a secure method to authenticate API requests and ensure data privacy and integrity.
+
+3. **Data Sources**
+
+Endpoint Name: managedDevices  
+Endpoint URL: /deviceManagement/managedDevices  
+Necessary Permission: DeviceManagementManagedDevices.Read.All  
+
+4. **Data Points**
+
+Index: azgraph.onedrive.activity.details
+
+This index tracks detailed information about managed devices, providing insights into device usage, health, and compliance.
+
+- **meid**: Mobile Equipment Identifier
+- **notes**: Additional information or notes about the device
+- **activationLockBypassCode**: Code used to bypass activation lock
+- **deviceName**: Name of the device
+- **operatingSystem**: Operating system running on the device
+- **remoteAssistanceSessionErrorDetails**: Details of any errors during remote assistance sessions
+- **emailAddress**: Email address associated with the device
+- **iccid**: Integrated Circuit Card Identifier
+- **lastSyncDateTime**: Last synchronization date and time with the server
+- **configurationManagerClientEnabledFeatures**: Features enabled via the Configuration Manager client
+- **dragonfly_customer**: Custom field for client identification
+- **exchangeAccessStateReason**: Reason for the current exchange access state
+- **totalStorageSpaceInBytes**: Total storage space of the device in bytes
+- **model**: Device model
+- **wiFiMacAddress**: Wi-Fi MAC address
+- **id**: Unique identifier for the device
+- **managedDeviceOwnerType**: Type of device owner
+- **exchangeLastSuccessfulSyncDateTime**: Last successful synchronization date and time with Exchange
+- **easActivationDateTime**: Date and time of Exchange ActiveSync activation
+- **serialNumber**: Device serial number
+- **subscriberCarrier**: Carrier subscribed to by the device
+- **deviceEnrollmentType**: Type of enrollment the device underwent
+- **active**: Device activity status
+- **managementAgent**: Type of management agent installed
+- **isSupervised**: Supervision status
+- **phoneNumber**: Associated phone number
+- **deviceCategoryDisplayName**: Display name of the device category
+- **physicalMemoryInBytes**: Physical memory in bytes
+- **deviceHealthAttestationState**: Health attestation state
+- **managementCertificateExpirationDate**: Expiration date of the management certificate
+- **enrolledDateTime**: Date and time the device was enrolled
+- **azureADRegistered**: Azure AD registration status
+- **androidSecurityPatchLevel**: Security patch level of the Android device
+- **deviceRegistrationState**: Registration state of the device
+- **deviceActionResults**: Results of actions taken on the device
+- **easDeviceId**: Exchange ActiveSync device ID
+- **complianceState**: Compliance state of the device
+- **partnerReportedThreatState**: Threat state as reported by a partner
+- **manufacturer**: Device manufacturer
+- **osVersion**: Operating system version
+- **isEncrypted**: Encryption status
+- **ethernetMacAddress**: Ethernet MAC address
+- **udid**: Unique Device Identifier
+- **enrollmentProfileName**: Name of the enrollment profile
+- **userPrincipalName**: Principal name of the user
+- **jailBroken**: Jailbreak status
+- **easActivated**: Exchange ActiveSync activation status
+- **exchangeAccessState**: Exchange access state
+- **remoteAssistanceSessionUrl**: URL for remote assistance session
+- **userDisplayName**: Display name of the user
+- **freeStorageSpaceInBytes**: Free storage space in bytes
+- **requireUserEnrollmentApproval**: Whether user enrollment approval is required
+- **managedDeviceName**: Name of the managed device
+- **userId**: User ID associated with the device
+- **azureADDeviceId**: Azure AD device ID
+- **imei**: International Mobile Equipment Identity
+- **complianceGracePeriodExpirationDateTime**: Expiration date and time of the compliance grace period
+
+5. **Dashboard**
+
+The dashboard provides a comprehensive visualization of device management metrics, including device status, compliance levels, and user activity. It features interactive charts and tables that allow IT administrators to quickly assess the health and security of their device fleet.
+
+6. **Frequency of Sampling**
+
+The Microsoft Intune Device Manager API samples data on a daily basis at 10:30 AM UTC, ensuring up-to-date information is always available for device management and compliance monitoring.
+
+7. **Key Takeaways**
+- **Comprehensive Device Management**: Leverage detailed device data to enhance device security, compliance, and management.
+- **Real-time Insights**: Access up-to-date information on device status, facilitating proactive interventions and decision-making.
+- **Enhanced Security Posture**: Utilize detailed compliance and security data to strengthen organizational security measures against potential threats.

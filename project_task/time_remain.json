@@ -1,0 +1,30 @@
+[
+    {
+        "date": "2024-06-10",
+        "time_required_hours": 4
+    },
+    {
+        "date": "2024-06-11",
+        "time_required_hours": 4
+    },
+    {
+        "date": "2024-06-12",
+        "time_required_hours": 4
+    },
+    {
+        "date": "2024-06-13",
+        "time_required_hours": 4
+    },
+    {
+        "date": "2024-06-14",
+        "time_required_hours": 7
+    },
+    {
+        "date": "2024-06-20",
+        "time_required_hours": 2
+    },
+    {
+        "date": "2024-06-21",
+        "time_required_hours": 5
+    }
+]
