@@ -1,0 +1,31 @@
+from ollama import Client
+def ia_ollama(user_input):
+    system_message = """
+                You are an IA assistant senior in python programing.
+                """
+
+
+
+                # Print generated text
+                ## print("Summary: " + generated_text + "\n")
+    file = open(file="/home/henryx/hen_projects/task_IA/practice_ollama/document_source.txt", encoding="utf8").read()
+                
+
+    prompt = user_input + file
+                
+                # Initialize messages array
+    messages_array = [{"role": "system", "content": system_message}, {"role": "user", "content": prompt}]
+    client = Client(
+        host='http://192.168.1.163:11434/',
+        headers={'x-some-header': 'some-value'}
+    )
+    response = client.chat(model='deepseek-r1:32b', options={"temperature": 0.7,
+                'max_tokens':2600}, messages=[
+    {"role": "system", "content": system_message}, {"role": "user", "content": prompt}
+    ])
+    print(response.message.content)
+
+if __name__ == '__main__': 
+
+    user_input  = " Refactor the code using good programing practices: "
+    ia_ollama(user_input)

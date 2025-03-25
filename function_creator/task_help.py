@@ -18,7 +18,7 @@ async def main(user_input):
         while final_task:
            
             system_message = """
-            You are a programming assistant helping write code for python azure functions
+            You are a Data Science IA assistant helping 
             """
             """ prompt = f
             Take the following short description and expand it:
@@ -46,7 +46,7 @@ async def main(user_input):
             response = client.chat.completions.create(
                 model=azure_oai_deployment,
                 temperature=0.7,
-                max_tokens=1000,
+                max_tokens=6000,
                 messages=messages_array
             )
             
@@ -69,6 +69,6 @@ async def main(user_input):
 if __name__ == '__main__': 
 
     user_message  = """
-        rewite the code in order that should run only for this endpoint 
+        rewite the code for multi modal distribution anaylsis
        """
     asyncio.run(main(user_message))
